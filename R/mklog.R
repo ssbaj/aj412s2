@@ -1,7 +1,7 @@
 mklog <-function(dataset_name , ...) {
 
-# 함수명은 5글자 이상을 사용할 것을 추천함
 dataset_name<-as.data.frame(dataset_name)
+
 #-------------------------------------
 if (base::missing(dataset_name)) {
 cat(" df<-mklog(df, variable) *NOTE: 변수에 자연로그를 취함 ", '\n')
