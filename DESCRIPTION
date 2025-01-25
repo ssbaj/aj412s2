@@ -2,7 +2,7 @@ Package: aj412s2
 Type: Package
 Title: Statistical Tools for Writing Papers -----
 Version: 0.0.22
-Author: Who write this ?
+Author: Who wrote this?
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
