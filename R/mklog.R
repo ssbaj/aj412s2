@@ -1,16 +1,10 @@
 mklog <-function(dataset_name , ...) {
 
-dataset_name<-as.data.frame(dataset_name)
-
 #-------------------------------------
 if (base::missing(dataset_name)) {
 cat(" df<-mklog(df, variable) *NOTE: 변수에 자연로그를 취함 ", '\n')
     cat(" \033[1;34m# 변수의 값들은 1.0보다 커야 합니다. min()으로 최솟값을 체크하세요. \033[0m ", '\n')
 return(cat(" \033[1;34m# example of logs : log(0)=NA, log(0.1)=NA, log(1.0)=0, log(10)=2.30 \033[0m ") ) }
-
-if(class(dataset_name)!="data.frame") {
-    return(cat(" CORRECT COMMAND: df<-mklog(df, 변수1, 변수2, 변수3)", '\n')) }
-
 
 # find_col2함수 ----------------
 find_col2<-function(dataset_name, index_id ){
