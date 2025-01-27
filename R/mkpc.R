@@ -1,5 +1,5 @@
 mkpc <- function(dataset_name, ...) {
-  
+dataset_name<-as.data.frame(dataset_name)
   #-------------------------
   if (base::missing(dataset_name)) {
     cat("  To make % value, multiply the result by 100.  ", '\n')
