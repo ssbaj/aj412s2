@@ -11,7 +11,7 @@ rm(data)
 	
 	if(tmp=='numeric') {
 	     cat( "   ", mycolnames[i],'(',i,') ', sep="")
-	     cat("\033[1;32m numeric  \033[0m ", sep="")  
+	     cat("\033[1;41m numeric  \033[0m ", sep="")
 		 cat("\n")  }
 
     else if(tmp=='character') {
