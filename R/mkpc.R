@@ -1,4 +1,4 @@
-mkpc22 <- function(dataset_name, ...) {
+mkpc <- function(dataset_name, ...) {
 
 dataset_name<-as.data.frame(dataset_name)
 
