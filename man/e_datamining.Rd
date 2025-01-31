@@ -11,6 +11,7 @@ e_datamining Program
 
 ## csv 데이터파일 로딩하기 -----
   df<-read.csv('df55.csv')
+  print(df, max=99999)
 
 ## 한글 변수에 문제가 있을 경우 -----
   library(dplyr)
