@@ -4,8 +4,8 @@ if (base::missing(df)) {
     cat("\033[1;31m # 시계열 자료의 계절조정 ------------- \033[0m ", '\n')
     cat("\033[1;32m # mkdate_series로 DATE변수 만들기 : df<-mkdate_series(df, 시작연도:2015, 시작달:11, 월자료:12) \033[0m ", '\n')
     cat("\033[1;32m # Quarterly 인지 Monthly 데이터인지는 DATE값을 보고 자동 판독함 \033[0m ", '\n')
-    cat("\033[1;31m 방법1) x11으로 계절조정: df<-mksad(df, DATE변수명, data변수명) \033[0m ", '\n')
-    cat("\033[1;31m 방법2) 이동평균법으로 seasonal adjust 옵션 지정 하기 ---------- \033[0m ", '\n')
+    cat("\033[1;33m 방법1) x11으로 계절조정: df<-mksad(df, DATE변수명, data변수명) \033[0m ", '\n')
+    cat("\033[1;33m 방법2) 이동평균법으로 seasonal adjust 옵션 지정 하기 ---------- \033[0m ", '\n')
     cat(" 5기간 이동평균: df<-mksad(df, DATE변수명, data변수명, 2 ) ", '\n')
     cat(" 5기간 외의 이동평균: df<-mksad(df, DATE변수명, data변수명, 2 , ma.method=이동평균_기간/디폴트_5기간 ) ", '\n')
     cat(" (1) adjusting.method의 디폴트는 1(=x11방법), 2(=이동평균법) ", '\n')
@@ -27,6 +27,8 @@ if (!require(forecast)) {
 install.packages("forecast")
 }
 
+suppressPackageStartupMessages(library("dplyr"))
+suppressPackageStartupMessages(library("seasonal"))
 
 ## 변수명에 홑따옴표를 붙여 문자로 바꾸는 명령문
 

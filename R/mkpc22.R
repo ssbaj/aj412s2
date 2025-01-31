@@ -1,5 +1,7 @@
-mkpc <- function(dataset_name, ...) {
+mkpc22 <- function(dataset_name, ...) {
+
 dataset_name<-as.data.frame(dataset_name)
+
   #-------------------------
   if (base::missing(dataset_name)) {
     cat("  To make % value, multiply the result by 100.  ", '\n')
@@ -35,10 +37,12 @@ dataset_name<-as.data.frame(dataset_name)
     r=c(r, t_counter)
   }
   
-  r_var_index_number <- r
+  r_var_index_number <- r  ## 함수 명령문에서 ... 변수들variables에 해당되는 변수들 인덱스
   
   ##---------------------------------
   
+  # -- differencing and making percent change variables --
+
   dataset_name<-as.data.frame(dataset_name)
   tmp_dataset <- dataset_name[ ,c(r_var_index_number)]
   
