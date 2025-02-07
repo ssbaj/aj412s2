@@ -1,5 +1,5 @@
 class_col <-function(data) {
-df<-as.data.frame(data)
+df<-as.data.frame(data) 
 rm(data)
   cat(" ", '\n')
   cat("\033[1;31m # class of variables -------------------\033[0m ", '\n')
