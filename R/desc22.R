@@ -117,7 +117,7 @@ rownames(Bdata)<-r0
 
 colnames(Bdata)[1] <- c('  Ndata')
 colnames(Bdata)[2] <- c('  NAs')
-colnames(Bdata)[3] <- c('  zero')
+colnames(Bdata)[3] <- c('  Zero')
 colnames(Bdata)[4] <- c('  nonzero')
 colnames(Bdata)[5] <- c('  Median')
 colnames(Bdata)[6] <- c('  Mean')
