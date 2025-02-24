@@ -6,8 +6,14 @@ cat(" \033[1;36m# Making grand mean, group centered value \033[0m", '\n' )
 return( cat("\033[1;36m COMMAND: newdata<-mkgmgc(data, 'id', 'target_var') \033[0m", '\n') )
 }
 
+  if (!require(dplyr)) {
+    cat('Automatically Installing dplyr package because','\n')
+    cat('dplyr is necessary for this function','\n')
+    cat('If an error occurs, connect to the network','\n')
+    install.packages("dplyr")
+  }
   
-library(dplyr)
+  suppressPackageStartupMessages(library("dplyr"))
   
   # 그룹별 평균 계산
   data <- data %>%
@@ -18,6 +24,9 @@ library(dplyr)
     ) %>%
     ungroup()
   
+  colnames(data)[3] <- paste0( colnames(data)[3] , '_', target_var , sep='')
+  colnames(data)[4] <- paste0( colnames(data)[4] , '_', target_var , sep='')
+
   return(data)
 }
 
