@@ -1,4 +1,10 @@
 class_col <-function(data) {
+
+if (base::missing(data)) {
+cat(" \033[1;36m# Examples ---------- \033[0m", '\n' )
+
+return( cat(" \033[1;36m  class_col(데이터셋) \033[0m", '\n' ) ) }
+
 df<-as.data.frame(data) 
 rm(data)
   cat(" ", '\n')
