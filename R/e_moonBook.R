@@ -2,7 +2,7 @@
 e_moonBook<-function(explaining=0){
 if(explaining==0) {
 cat(" ", '\n')
-cat("  library(moonBook); library(ztable); library(aj412s) ", '\n')
+cat("  library(moonBook); library(ztable); library(aj412s2) ", '\n')
 cat(" ", '\n')
 cat("  options(ztable.type='viewer')  ", '\n')
 cat(" ", '\n')

@@ -1,7 +1,7 @@
 e_mlogit<-function(explaining=0){
 if(explaining==0) {
 cat(" \033[1;34m## multinomial logit Analysis ------ \033[0m", '\n')
-cat(" library(nnet); library(dplyr); library(bss2) ", '\n')
+cat(" library(nnet); library(dplyr); library(aj412s2) ", '\n')
 cat(" ", '\n')
 cat(" set.seed(123) ", '\n')
 cat(" n <- 1000 ", '\n')

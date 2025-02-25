@@ -2,7 +2,7 @@ summary_mlogit <- function(model) {
 
 if (base::missing(model)) {
 cat(" \033[1;36m# 명령문 예제 ---------- \033[0m", '\n' )
-return( cat("\033[1;36m 명령문: summary_logit(multinom분석결과) \033[0m", '\n') )
+return( cat("\033[1;36m 명령문: summary_mlogit(multinom분석결과) \033[0m", '\n') )
 }
 
 suppressPackageStartupMessages(library("dplyr"))

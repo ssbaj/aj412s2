@@ -1,6 +1,6 @@
 e_logit<-function(explaining=0){
 if(explaining==0) {
-cat("  library(gmodels); library(aj412s) ", '\n')
+cat("  library(gmodels); library(aj412s2) ", '\n')
 cat("  df<-BasicData # BasicData는 aj412s의 내장데이터 ", '\n')
 cat("  \033[1;36m# R의 오리지널 logit명령문은  길고 복잡해서 logit을 만들었어요  \033[0m", '\n')
 cat("  결과 <- logit(debt2 ~ conv + satprice + gender, data=df) ", '\n')
