@@ -9,6 +9,6 @@ Making grand mean and group centered value
 }
 \examples{
 
-newdata <- mkgmgc( df, 'id', 'target_var')
+newdata <- mkgmgc( df, id, target_var)
 
 }
