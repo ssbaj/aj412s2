@@ -89,6 +89,8 @@ fit_target_variable <- target_variable%>%seasonal::seas(x11='')
 x11_sa <- forecast::seasadj(fit_target_variable)
 df<-cbind(df, x11_sa)
 df$x11_sa<-ts( df$x11_sa, start=c(year_start, month_start), freq=FREQ) # 특정 data를 지정한다
+df<-data.frame(df)
+colnames(df)[length(df)] <- paste( "x11_" , colnames(df)[data_col] , sep='')
 return(df)
 }
 
@@ -99,6 +101,8 @@ if(SeaMethod == 2){
 cat('Period for moving average:', ma.method, '\n' )
 ma_sa <- forecast::ma(target_variable, ma.method)
 df<-cbind(df, ma_sa)
+df<-data.frame(df)
+colnames(df)[length(df)] <- paste( "ma_" , colnames(df)[data_col] , sep='')
 return(df)
 }
 
