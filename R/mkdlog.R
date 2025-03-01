@@ -97,7 +97,7 @@ for(i in r_var_index_number) {
   ## Changing variable names
   for(i in r_var_index_number){
     jcounterxx <- jcounterxx + 1
-    colnames(tmp2)[jcounterxx] <- paste( "dlog_" , colnames(dataset_name)[i] , sep='')
+    colnames(tmp2)[jcounterxx] <- paste( "dl_" , colnames(dataset_name)[i] , sep='')
     }
 
 tmp3<-data.frame(dataset_name, tmp2)
