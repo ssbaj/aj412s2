@@ -1,7 +1,4 @@
 mkpc <- function(dataset_name, ...) {
-
-dataset_name<-as.data.frame(dataset_name)
-
   #-------------------------
   if (base::missing(dataset_name)) {
     cat("  To make % value, multiply the result by 100.  ", '\n')
@@ -13,7 +10,9 @@ dataset_name<-as.data.frame(dataset_name)
     cat('If an error occurs, connect to the network','\n')
     install.packages("dplyr")
   }
-  
+
+  dataset_name<-as.data.frame(dataset_name)
+
   suppressPackageStartupMessages(library("dplyr"))
   
   # find_col2함수 ----------------
@@ -59,12 +58,12 @@ dataset_name<-as.data.frame(dataset_name)
   ## Changing variable names -----------
   for(i in r_var_index_number){
     dataset_counter <- dataset_counter + 1
-    colnames(all_dataset)[dataset_counter] <- paste( "d_" , colnames(dataset_name)[i] , sep='')
+    colnames(all_dataset)[dataset_counter] <- paste0( "diff_" , colnames(dataset_name)[i] , sep='')
   }
   
   
   for(i in r_var_index_number){
-    all_counter <- all_counter + 1
+    all_counter <- all_counter + 2
     colnames(all_dataset)[all_counter] <- paste( "pc_" , colnames(dataset_name)[i] , sep='')
   }
 #-------------------------------------
