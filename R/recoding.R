@@ -68,6 +68,9 @@ if( class(origindata)=="numeric" | class(origindata)=="integer" ) {
 
   name_dataset2<-cbind(name_dataset, origindata2)
   colnames(name_dataset2)[k+1] <- paste0(colnames(name_dataset[select_columns]), "_se" , sep='')
+  
+  ifelse( !is.na(unique(suppressWarnings(as.numeric(name_dataset2[,k+1] )))),  ( name_dataset2[ ,k+1]<-as.numeric(name_dataset2[,k+1]) ) , (name_dataset2[,k+1]) )
+
   return(name_dataset2)
 }
 
