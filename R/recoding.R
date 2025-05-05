@@ -3,6 +3,7 @@ recoding<-function(name_dataset,  select_columns ) {
 if (base::missing(name_dataset)) {
         cat("\033[1;32m# 명령문 예제 -------- \033[0m ", '\n')
 		cat("\033[1;32m  df<-as.data.frame(df) \033[0m ", '\n')
+		cat("\033[1;32m  미싱데이토로 표시한다면 NA 입력 \033[0m ", '\n')
         return( cat("\033[1;32m  df<-recoding(df, 변수명) \033[0m ", '\n') )
     }
 
@@ -69,7 +70,7 @@ if( class(origindata)=="numeric" | class(origindata)=="integer" ) {
   name_dataset2<-cbind(name_dataset, origindata2)
   colnames(name_dataset2)[k+1] <- paste0(colnames(name_dataset[select_columns]), "_se" , sep='')
   
-  ifelse( !is.na(unique(suppressWarnings(as.numeric(name_dataset2[,k+1] )))),  ( name_dataset2[ ,k+1]<-as.numeric(name_dataset2[,k+1]) ) , (name_dataset2[,k+1]) )
+  suppressWarnings( ifelse( !is.na(unique(as.numeric(name_dataset2[,k+1] ))),  ( name_dataset2[ ,k+1]<-as.numeric(name_dataset2[,k+1]) ) , (name_dataset2[,k+1]) ) )
 
   return(name_dataset2)
 }
