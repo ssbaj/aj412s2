@@ -51,15 +51,15 @@ mkpc <- function(dataset_name, ...) {
  all_counter <- dataset_counter + diff_counter
 
  ## Changing variable names -----------
- for(i in r_var_index_number){
-  dataset_counter <- dataset_counter + 1
-  colnames(all_dataset)[dataset_counter] <- paste0( "diff_" , colnames(dataset_name)[i] , sep='')
- }
+ ## for(i in r_var_index_number){
+ ##  dataset_counter <- dataset_counter + 1
+ ##  colnames(all_dataset)[dataset_counter] <- paste0( "diff_" , colnames(dataset_name)[i] , sep='')
+ ## }
 
-  for(i in r_var_index_number){
-  all_counter <- all_counter + 2
-  colnames(all_dataset)[all_counter] <- paste( "pc_" , colnames(dataset_name)[i] , sep='')
- }
+ ##  for(i in r_var_index_number){
+ ##  all_counter <- all_counter + 2
+ ##  colnames(all_dataset)[all_counter] <- paste( "pc_" , colnames(dataset_name)[i] , sep='')
+ ## }
 
 #-------------------------------------
    return(all_dataset)
