@@ -2,8 +2,9 @@ opencsv <- function(name_dataset, header=TRUE, skip=0) {
 
 if (base::missing(name_dataset)) {
 	cat("# Loading csv file ( .csv ) ----", '\n')
-	cat("  Adata<-opencsv( KoreanFinance2018.csv ) ", '\n')
-	return(cat("  옵션: Adata<-opencsv( KoreanFinance2018.csv, header=T 또는 F, skip=1 등 입니다 )", '\n') )
+	cat("  df<-opencsv( data.csv ) ", '\n')
+	cat("  옵션: df<-opencsv( data.csv, header=T 또는 F, skip=1 등 입니다 )", '\n')
+	return(cat("  한글보호: write.csv(data, 'Bdata.csv', fileEncoding='CP949') ", '\n') )
 	}
 
 name_dataset <- deparse(substitute(name_dataset))
