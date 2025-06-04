@@ -60,6 +60,7 @@ cat("   data3 <- data2 %>% pivot_wider(  ", '\n')
 cat("      names_from = 분류, ", '\n')
 cat("      values_from = DT ", '\n')
 cat("   )   ", '\n')
+cat("   write.csv(data3, 'data3.csv', fileEncoding='EUC-KR' ) ", '\n')
 cat("   ", '\n')
 }
 }
