@@ -2,11 +2,14 @@ mkdate_series<-function(df, start_y, start_m=0, mq=0 ){
 
 if (base::missing(df)) {
 	    cat("  df<-as.data.frame(df) ", '\n')
-		cat("  Input: 연도=2015, start_m=11 / start_m=0(Yearly DATA),", '\n')
-		cat("                    연간자료: mq=0 / 분기별자료: mq=4 / 월별자료: mq=12 ", '\n')
-		cat("  YEAR: df<-mkdate_series(df, 2015)   ", '\n')
-		cat("  Quarter: df<-mkdate_series(df, 2015, start_m=3/6/9/12, mq=4)   ", '\n')
-		return( cat("  df<-mkdate_series(df, 시작연도:2015, 시작달:11, 월자료:12)   ", '\n') )  
+		cat("  Input: 연도=2025, start_m=3, ", '\n')
+		cat("         mq=4(분기별자료 지정) 또는, mq=12(월별자료 지정) ", '\n')
+		cat(" # ---------------------------------------------------------------- #   ", '\n')
+		cat("  Year   : df<-mkdate_series(df, 2025)   ", '\n')
+		cat("  Quarter: df<-mkdate_series(df, 2025, start_m=3/6/9/12, 분기별자료라고 지정 mq=4)   ", '\n')
+		cat("  Monthly: df<-mkdate_series(df, 2025, start_m=1/2..11/12, 월별자료라고 지정 mq=12)   ", '\n')
+		cat(" # ---------------------------------------------------------------- #   ", '\n')
+		return( cat("  df<-mkdate_series(df, 시작연도:2025, 시작달:11, 월별자료:12)   ", '\n') )  
 		}
 
 df<-as.data.frame(df)
