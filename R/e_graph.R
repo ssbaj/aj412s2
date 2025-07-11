@@ -122,7 +122,7 @@ cat("           position = position_stack(vjust = 0.5), # 막대 중앙에 위�
 cat("           color = 'black', size = 5)  ", '\n')
 cat("   ", '\n')
 cat("\033[1;31m ## 막대그래프의 x축과 y축의 위치 변경하기 -------------  \033[0m ", '\n')
-cat(" ggplot(data=tmp3, aes(x=학점, y=freq, fill=성별)) +  ", '\n')
+cat(" ggplot(data=tmp3, aes(x=reorder(학점, freq), y=freq, fill=성별)) +  ", '\n')
 cat("   geom_bar(stat='identity', position='stack', col='black') +  ", '\n')
 cat("   labs(title='Position=stack', x='성별', y='빈도수') + mytheme +  ", '\n')
 cat("   scale_fill_manual( values = my_palette, name = '성별') +  ", '\n')
