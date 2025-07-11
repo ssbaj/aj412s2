@@ -1,4 +1,4 @@
-e_ggplot3<-function(explaining=0){
+e_graph2<-function(explaining=0){
 
 if(explaining==0) {
 cat("  ", '\n')

@@ -17,18 +17,20 @@ p_matrix <- (1 - pnorm(abs(z_matrix), 0, 1)) * 2
 for (i in 1:nrow(coef_matrix)) {
 category <- rownames(coef_matrix)[i]
 cat("\nResults for category:", category, "\n")
+
 results <- data.frame(
-Coefficient = coef_matrix[i,],
-Std.Error = se_matrix[i,],
-z_value = z_matrix[i,],
-p_value = p_matrix[i,]
+Coef. = coef_matrix[i,],
+Std.Er = se_matrix[i,],
+z_value =  z_matrix[i,],
+p_value =  p_matrix[i,]
 ) %>%
 mutate(across(where(is.numeric), ~round(., 4)))
-print(results)
 }
 
 # 모델 요약 정보 출력
 cat("\n<< Model Summary >>\n")
 cat(" Number of observations:", nrow(model$fitted.values), "\n")
 cat(" AIC:", AIC(model), "\n")
+print(results)
 }
+

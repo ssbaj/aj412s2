@@ -1,17 +1,17 @@
-\name{e_ggplot2}
-\alias{e_ggplot2}
-\title{e_ggplot2}
+\name{e_graph1}
+\alias{e_graph1}
+\title{e_graph1}
 \usage{
-e_ggplot2()
+e_graph1()
 }
 \description{
-e_ggplot2 Program
+e_graph1 Program
 }
 \examples{
 
 
 # --------- 막대그래프 그리기 -------------------
-library(dplyr); library(aj412s); library(readxl); library(ggplot2)
+library(dplyr); library(aj412s2); library(readxl); library(ggplot2)
 
 # Adata<-read_excel('Data41_Time_Series_data3.xlsx', skip=1)
 #예제 데이터는 패키지에 KoreaMacro란 이름으로 내장되어 있음

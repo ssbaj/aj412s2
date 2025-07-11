@@ -11,11 +11,13 @@ mlogit_prob()
 
 # Examples ----------  
 
-  new_data <- data.frame(  
+  my_input <- data.frame(  
   gender = rep('male', 61),  
   age = rep(30, 61),  
   income = seq(2000, 8000, 100)  
   )  
- 
- mlogit_prob(Result, new_data)  
+
+ predict(mlogit_Result, newdata = my_input, type = "probs")
+ mlogit_prob(mlogit_Result, my_input)  
+
 }

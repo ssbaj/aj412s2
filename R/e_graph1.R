@@ -1,4 +1,4 @@
-e_ggplot2<-function(explaining=0){
+e_graph1<-function(explaining=0){
 
 if(explaining==0) {
 cat("   ", '\n')
@@ -22,7 +22,7 @@ cat("   ", '\n')
 cat("  library(ggplot2) ", '\n')
 cat("    ", '\n')
 cat(" mytheme <- theme(  ", '\n')
-cat("     plot.background = element_rect(fill = '#1A00331C', color = 'black', size = 1), # 전체 플롯 배경 색  ", '\n')
+cat("     plot.background = element_rect(fill = "#1A00331C", color = 'black', size = 1), # 전체 플롯 배경 색("#1A00331C")  ", '\n')
 cat("     panel.background = element_rect(fill = 'white', color = 'gray'), # 그래프 영역 배경 색  ", '\n')
 cat("     panel.grid.major = element_line(color = '#0300031C', size = 0.5), # 주요 그리드 선  ", '\n')
 cat("     panel.grid.minor = element_line(color = 'gray', size = 0.25, linetype = 'dashed'), # 보조 그리드 선  ", '\n')
@@ -37,7 +37,7 @@ cat("     legend.position = 'right'  ## legend.position = 'none' OR 'bottom' ", 
 cat("    )  ", '\n')
 cat("   ", '\n')
 cat("  p1<-ggplot(tmp, aes(x=Day, y=freq, fill=Gender)) +  ", '\n')
-cat("     geom_bar(stat='identity', position='dodge') +  ", '\n')
+cat("     geom_bar(stat='identity', position='dodge', width=0.5 ) + # width는 막대그래프 넓이 ", '\n')
 cat("     scale_fill_manual(values = c('#4D1A6655', '#4D1A66FF')) +  ", '\n')
 cat("     theme(axis.text.x=element_text(angle=-40)) +  ", '\n')
 cat("     labs(title='성별과 요일', x='요일', y='빈도수')  ", '\n')
