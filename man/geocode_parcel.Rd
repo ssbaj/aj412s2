@@ -11,7 +11,7 @@ Converting PARCEL address to Geocode
 
  library(httr); library(jsonlite); library(stringr)  
  my_vworld <- 'Your Vworld ApiKey'  
-
+ # my_vworld <- 'SHIMBIRO455-A612BFF9-049A-ELCA888-3B10-BED9-B79A19STUPID1038C6'  
  # 도로명 주소를 addr_parcel에 입력 ----   
  addr_parcel <- '경기도 수원시 영통구 원천동 산19'   
  geocode_parcel(my_vworld, addr_parcel)  

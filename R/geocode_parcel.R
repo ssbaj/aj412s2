@@ -38,7 +38,7 @@ geocode_parcel<-function(vworld_apikey, addr){
     latlng22<-c(lat, lng)
     return(latlng22)
   } else {
-    cat('error code:', status_code(response), '\n')
+    cat(i,' data-Error: ', 'error code:', status_code(response), '\n')
   }
   
 }
