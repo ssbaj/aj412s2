@@ -1,9 +1,9 @@
 mkcsv <- function(dataset, file_path, encoding = "EUC-KR") {
   if (base::missing(dataset)) {
-	cat("# mkcsv(데이터셋, 'file명.csv' ) ", '\n')
-	cat("#       csv파일 저장 디폴트: EUC-KR ", '\n')
-	cat("# mkcsv(데이터셋, 'file명.csv' encoding = 'CP949') ", '\n')
-	return(cat("# mkcsv(데이터셋, 'file명.csv' encoding = 'UTF-8') ", '\n') )
+	cat("\033[1;34m# mkcsv(데이터셋, 'file명.csv' ) \033[0m ", '\n')
+	cat("\033[1;34m#       csv파일 저장 디폴트: EUC-KR \033[0m ", '\n')
+	cat("\033[1;34m# mkcsv(데이터셋, 'file명.csv', encoding = 'CP949') \033[0m ", '\n')
+	return(cat("# mkcsv(데이터셋, 'file명.csv', encoding = 'UTF-8') \033[0m ", '\n')
 	}
   
   # 지원되는 인코딩 목록
