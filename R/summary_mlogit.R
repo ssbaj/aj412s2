@@ -1,3 +1,5 @@
+# reporting results of multinomial logit ---
+
 summary_mlogit <- function(model) {
 
 if (base::missing(model)) {

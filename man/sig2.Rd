@@ -9,7 +9,7 @@ Print VarCorr value for HLM
 }
 \examples{
 
-sig2(Result, 1)
+# HLM의 VarCorr 결과 ----
 
 sig2(Result)
 
