@@ -27,12 +27,14 @@ z_value =  z_matrix[i,],
 p_value =  p_matrix[i,]
 ) %>%
 mutate(across(where(is.numeric), ~round(., 4)))
+print(results)
 }
 
 # 모델 요약 정보 출력
 cat("\n<< Model Summary >>\n")
 cat(" Number of observations:", nrow(model$fitted.values), "\n")
 cat(" AIC:", AIC(model), "\n")
-print(results)
+cat(" BIC:", BIC(model), "\n")
+cat(" " , "\n")
 }
 

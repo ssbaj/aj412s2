@@ -25,6 +25,9 @@ df_wide <- df %>%
     values_from = 면적
   )
 
+library(openxlsx)
+write.xlsx(df_wide, 'df_wide.xlsx')
+
 df_long <- df_wide %>%
   pivot_longer(
     cols = c('녹지면적', '도시면적', '도로면적'),
@@ -32,7 +35,16 @@ df_long <- df_wide %>%
     values_to = '면적'
   )
 
+write.xlsx(df_long, 'df_long.xlsx')
 
+## Merging dataset and fill NA as zeros ---------------
+
+library(dplyr); library(aj412s2)
+df<-merge(df_wide, dongs_seoul, by='두 데이터셋에 공통으로 존재하는 변수명', all=T)
+
+df[is.na(df)]<-0
+
+mkcsv(df, 'dfall.csv')
 
 }
 

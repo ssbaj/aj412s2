@@ -19,7 +19,6 @@ mkcsv <- function(dataset, file_path, encoding = "EUC-KR") {
   # CSV 파일 저장
   tryCatch({
     write.csv(dataset, file = file_path, row.names = FALSE, fileEncoding = encoding)
-    message(paste0("   데이터셋이 '", file_path, "'에 '", encoding, "' 인코딩으로 저장"))
   }, error = function(e) {
     stop(paste0("파일 저장 중 오류가 발생함: ", e$message))
   })
