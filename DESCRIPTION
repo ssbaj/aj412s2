@@ -1,9 +1,9 @@
 Package: aj412s2
 Type: Package
 Title: Statistical Tools -----------
-Version: 0.0.22
-Author: Who wrote this?
-Maintainer: The package maintainer <yourself@somewhere.net>
+Version: 0.0.25
+Author: Sangseok Bae
+Maintainer: The package maintainer <ssb9018@ajou.ac.kr>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
