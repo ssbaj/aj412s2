@@ -1,11 +1,11 @@
 \name{na_col}
 \alias{na_col}
-\title{Function of calculating mean,SD, and Quantile for all variables}
+\title{Function of counting number of NAs}
 \usage{
 na_col()
 }
 \description{
-Function of calculating mean, SD, and Quantile for all variables
+Function of counting number of NAs
 }
 \examples{
 

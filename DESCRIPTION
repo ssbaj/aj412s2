@@ -1,12 +1,11 @@
 Package: aj412s2
 Type: Package
-Title: Statistical Tools -----------
+Title: A package for analyzing statistics
 Version: 0.0.25
 Author: Sangseok Bae
-Maintainer: The package maintainer <ssb9018@ajou.ac.kr>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: A tool that makes working statistics analysis easy.
+License: GPL-3 | file LICENSE
 Encoding: UTF-8
 Depends: 
     R (>= 3.5)
