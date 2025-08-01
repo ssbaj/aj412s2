@@ -46,7 +46,7 @@ cat("\033[1;33m  # CASE 4 ---------------------- \033[0m", '\n')
 cat("  df_면적평균<- df %>% group_by(id) %>% summarize(면적평균=mean(area, na.rm=T)) ", '\n')
 cat("  mkcsv(df_면적평균, 'df_mean면적.csv') \033[1;35m  # df_면적평균 데이터를 csv파일로 저장 \033[0m   ", '\n')
 cat("   ", '\n')
-cat("\033[1;33m  # NOTE: merging two data sets ---------------- \033[0m", '\n')
+cat("\033[1;33m  # NOTE: merging two data sets ------------- \033[0m", '\n')
 cat("  df3 <- merge(df1, df2, by='id', all=T) ", '\n')
 cat("   ", '\n')
 }}
