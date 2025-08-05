@@ -15,5 +15,6 @@ geodistance22()
  # CENTER 데이터셋과 TARGET 데이터셋에 각각 lat와 long 변수가 있어야 함 ---
 
  geodistance22(CENTER, TARGET)
- -- 스크롤에 거리가 기록됩니다 ---
+  --- 스크롤에 거리가 기록됩니다
+  --- tmp<-geodistance22(CENTER, TARGET) # 결과를 tmp 데이터셋에 저장 ---
 }
