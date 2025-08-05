@@ -20,13 +20,13 @@ Converting PARCEL address to Geocode
  df<-opencsv(주소록파일.csv)
 
  df$lat<-NA 
- df$lng<-NA
+ df$long<-NA
 
  n<-nrow(df)
  for(i in 1:n){
   address_parcel<-df$주소[i]
   df$lat[i]<-geocode_parcel(my_vworld, address_parcel)[1]
-  df$lng[i]<-geocode_parcel(my_vworld, address_parcel)[2]
+  df$long[i]<-geocode_parcel(my_vworld, address_parcel)[2]
  }
 
 

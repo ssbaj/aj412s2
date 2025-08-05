@@ -21,14 +21,14 @@ Converting Road address to Geocode
  df<-opencsv(주소록파일.csv)
 
  df$lat<-NA 
- df$lng<-NA
+ df$long<-NA
 
  n<-nrow(df)
 
  for(i in 1:n){
   address_road<-df$주소[i]
   df$lat[i]<-geocode_road(my_apikey, address_road)[1]
-  df$lng[i]<-geocode_road(my_apikey, address_road)[2]
+  df$long[i]<-geocode_road(my_apikey, address_road)[2]
   }
 
 }
