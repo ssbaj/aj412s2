@@ -18,16 +18,16 @@ if (base::missing(REST_API_KEY)) {
     cat(" \033[1;34m# geocode_kakao(my_kakao_rest, addr) \033[0m ", '\n')
     cat(" \033[1;34m# ----------------------------------------------------- ", '\n')
     cat(" \033[1;32m              \033[0m ", '\n')
-    cat(" \033[1;32m library(httr); library(jsonlite); library(stringr); library(aj412s2)  \033[0m ", '\n')
     cat(" \033[1;34m my_kakao_rest <- '7af181-shimbi9645-9d01257-elan234-ecd75-stu843-e16354-pdi323-5f0675b9-no' ", '\n')
-    cat(" \033[1;32m df<-openxlsx(APT.xlsx)  # 주소의 변수명: 도로명 \033[0m ", '\n')
+    cat(" \033[1;32m library(httr); library(jsonlite); library(stringr); library(aj412s2)  \033[0m ", '\n')
+    cat(" \033[1;32m df<-openxlsx(APT.xlsx)   ##데이터셋df 에서 주소의 변수명: 도로명 \033[0m ", '\n')
     cat(" \033[1;32m n<-nrow(df)  \033[0m ", '\n')
     cat(" \033[1;32m df$long_x<-NA  \033[0m ", '\n')
     cat(" \033[1;32m df$lat_y<-NA  \033[0m ", '\n')
     cat(" \033[1;32m for(i in 1:n){  \033[0m ", '\n')
     cat(" \033[1;32m   df$long_x[i]<-geocode_kakao(my_kakao_rest, df$도로명[i] )[1]  \033[0m ", '\n')
     cat(" \033[1;32m   df$lat_y[i]<-geocode_kakao(my_kakao_rest, df$도로명[i] )[2]  \033[0m ", '\n')
-    cat(" \033[1;32m }  \033[0m ", '\n')
+    cat(" \033[1;32m  }  \033[0m ", '\n')
     return(cat(" \033[1;32m   \033[0m ") ) }
 
 response<-GET( url <- "https://dapi.kakao.com/v2/local/search/address.json", 
