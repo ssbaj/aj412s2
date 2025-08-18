@@ -14,8 +14,21 @@ geocode_road<-function(vworld_apikey, addr){
     cat(" \033[1;34m# my_vworld <- 'SHIMBIRO455-A612BFF9-049A-ELCA888-3B10-BED9-B79A191038C6-yes' ", '\n')
     cat(" \033[1;34m# 도로명 주소를 addr_road에 입력 ---- \033[0m ", '\n')
     cat(" \033[1;34m# addr_road <- '경기도 수원시 월드컵로 206' \033[0m ", '\n')
-    return(cat(" \033[1;34m# geocode_road(my_vworld, addr_road) \033[0m ") ) }
-  
+    cat(" \033[1;34m# geocode_road(my_vworld, addr_road) \033[0m ", '\n')
+    cat(" \033[1;34m# ----------------------------------------------------- ", '\n')
+    cat(" \033[1;32m              \033[0m ", '\n')
+    cat(" \033[1;32m library(httr); library(jsonlite); library(stringr); library(aj412s2)  \033[0m ", '\n')
+    cat(" \033[1;32m my_vworld <- 'SHIMBIRO455-A612BFF9-049A-ELCA888-3B10-BED9-B79A191038C6-yes' ", '\n')
+    cat(" \033[1;32m df<-openxlsx(APT.xlsx) # 주소의 변수명: 도로명 \033[0m ", '\n')
+    cat(" \033[1;32m n<-nrow(df)  \033[0m ", '\n')
+    cat(" \033[1;32m df$long_x<-NA  \033[0m ", '\n')
+    cat(" \033[1;32m df$lat_y<-NA  \033[0m ", '\n')
+    cat(" \033[1;32m for(i in 1:n){  \033[0m ", '\n')
+    cat(" \033[1;32m df$long_x[i]<-geocode_road(my_vworld, df$도로명[i] )[2]  \033[0m ", '\n')
+    cat(" \033[1;32m df$lat_y[i]<-geocode_road(my_vworld, df$도로명[i] )[1]  \033[0m ", '\n')
+    cat(" \033[1;32m  }  \033[0m ", '\n')
+    return(cat(" \033[1;32m   \033[0m ") ) }
+
   # URL 인코딩 함수 (Python의 quote_plus 역할)
   # URL 인코딩 시 공백은 '+'로, 기타 특수문자는 %xx 형태로 인코딩
   url_encode_plus <- function(string) {
