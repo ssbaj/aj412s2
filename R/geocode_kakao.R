@@ -12,22 +12,25 @@ if (base::missing(REST_API_KEY)) {
     cat(" \033[1;34m#                     td1<-td(cs~1, to='quarterly', converstion='last', method='denton-cholette') ", '\n')
     cat(" \033[1;34m# ----------------------------------------------------- ", '\n')
     cat(" \033[1;34m# library(httr); library(jsonlite); library(stringr) ", '\n')
-    cat(" \033[1;34m# my_kakao_rest <- '7af181-shimbi9645-9d01257-elan234-ecd75-stu843-e16354-pdi323-5f0675b9-no' ", '\n')
+    cat(" \033[1;34m# my_kakao_rest <- '7af181-9d01257-shimbi9645-elan234-ecd75-stu843-e16354-pdi323-5f0675b9-no' ", '\n')
     cat(" \033[1;34m# 지번 주소 또는, 도로명 주소를 addr에 대입 \033[0m ", '\n')
     cat(" \033[1;34m# addr <- '경기도 수원시 영통구 원천동 원천동 산5-1' \033[0m ", '\n')
     cat(" \033[1;34m# geocode_kakao(my_kakao_rest, addr) \033[0m ", '\n')
     cat(" \033[1;34m# ----------------------------------------------------- ", '\n')
     cat(" \033[1;32m              \033[0m ", '\n')
-    cat(" \033[1;34m my_kakao_rest <- '7af181-shimbi9645-9d01257-elan234-ecd75-stu843-e16354-pdi323-5f0675b9-no' ", '\n')
+    cat(" \033[1;34m my_kakao_rest <- '7af181-9d01257-shimbi9645-elan234-ecd75-stu843-e16354-pdi323-5f0675b9-no' ", '\n')
     cat(" \033[1;32m library(httr); library(jsonlite); library(stringr); library(aj412s2)  \033[0m ", '\n')
-    cat(" \033[1;32m df<-openxlsx(APT.xlsx)   ##데이터셋df 에서 주소의 변수명: 도로명 \033[0m ", '\n')
+    cat(" \033[1;32m df<-opencsv(DataSet.csv)   ##데이터셋df 에서 주소의 변수명: addr \033[0m ", '\n')
     cat(" \033[1;32m n<-nrow(df)  \033[0m ", '\n')
     cat(" \033[1;32m df$long_x<-NA  \033[0m ", '\n')
     cat(" \033[1;32m df$lat_y<-NA  \033[0m ", '\n')
-    cat(" \033[1;32m for(i in 1:n){  \033[0m ", '\n')
-    cat(" \033[1;32m   df$long_x[i]<-geocode_kakao(my_kakao_rest, df$도로명[i] )[1]  \033[0m ", '\n')
-    cat(" \033[1;32m   df$lat_y[i]<-geocode_kakao(my_kakao_rest, df$도로명[i] )[2]  \033[0m ", '\n')
-    cat(" \033[1;32m  }  \033[0m ", '\n')
+    cat(" \033[1;32m for(i in 1:n) { \033[0m ", '\n')
+    cat(" \033[1;32m addr <- df$addr[i] \033[0m ", '\n')
+    cat(" \033[1;32m longlat<-geocode_kakao(my_kakao_rest, addr) \033[0m ", '\n')
+    cat(" \033[1;32m if(is.null(longlat)) {longlat[1]<-NA; longlat[2]<-NA} \033[0m ", '\n')
+    cat(" \033[1;32m df$lat_y[i]<-longlat[2] \033[0m ", '\n')
+    cat(" \033[1;32m df$long_x[i]<-longlat[1] \033[0m ", '\n')
+    cat(" \033[1;32m } \033[0m ", '\n')
     return(cat(" \033[1;32m   \033[0m ") ) }
 
 response<-GET( url <- "https://dapi.kakao.com/v2/local/search/address.json", 
@@ -38,7 +41,7 @@ response<-GET( url <- "https://dapi.kakao.com/v2/local/search/address.json",
   tmp<-data.frame(vars)
   lat_x<-tmp$documents.x
   long_y<-tmp$documents.y
-
   tmp2<-c(lat_x, long_y)
   return(tmp2)
-  }
+
+}
