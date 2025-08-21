@@ -18,7 +18,7 @@ geocode_parcel<-function(vworld_apikey, addr){
     cat(" \033[1;32m# ----------------------------------------------------- ", '\n')
     cat(" \033[1;34m# my_vworld <- 'SHIMBIRO455-A612BFF9-049A-ELCA888-3B10-BED9-B79A191038C6-yes' ", '\n')
     cat(" \033[1;32m library(httr); library(jsonlite); library(stringr); library(aj412s2) ", '\n')
-    cat(" \033[1;32m df<-openxlsx(DataSet.xlsx) # 주소의 변수명: 지번주소 \033[0m ", '\n')
+    cat(" \033[1;32m df<-openxlsx(DataSet.xlsx) # 주소의 변수명: addr \033[0m ", '\n')
     cat(" \033[1;32m n<-nrow(df)  \033[0m ", '\n')
     cat(" \033[1;32m df$long_x<-NA  \033[0m ", '\n')
     cat(" \033[1;32m df$lat_y<-NA  \033[0m ", '\n')
