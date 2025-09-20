@@ -33,6 +33,23 @@ if (base::missing(REST_API_KEY)) {
     cat(" \033[1;32m } \033[0m ", '\n')
     return(cat(" \033[1;32m   \033[0m ") ) }
 
+## 패키지 설치 ----------------------------------------------
+pkgs <- c("jsonlite", "httr", "stringr", "devtools", "dplyr", "readxl")
+for (p in pkgs) {
+  if (!requireNamespace(p, quietly = TRUE)) {
+    install.packages(p)
+  }
+}
+
+
+# aj412s2 설치 여부 확인
+if (!requireNamespace("aj412s2", quietly = TRUE)) {
+  devtools::install_github("ssbaj/aj412s2")  # 실제 GitHub 경로로 수정 필요
+}
+
+## 패키지 설치 끝 --------------------------------------------
+
+
 response<-GET( url <- "https://dapi.kakao.com/v2/local/search/address.json", 
                  query = list(query=address[1]),
                  add_headers(Authorization = paste0("KakaoAK ", REST_API_KEY)))

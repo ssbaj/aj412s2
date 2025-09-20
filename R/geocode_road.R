@@ -17,30 +17,93 @@ geocode_road<-function(vworld_apikey, addr){
     cat(" \033[1;34m# geocode_road(my_vworld, addr_road) \033[0m ", '\n')
     cat(" \033[1;34m# ----------------------------------------------------- ", '\n')
     cat(" \033[1;34m              \033[0m ", '\n')
-    cat(" \033[1;34m my_vworld <- 'SHIMBIRO455-A612BFF9-049A-ELCA888-3B10-BED9-B79A191038C6-yes' ", '\n')
-    cat(" \033[1;32m library(httr); library(jsonlite); library(stringr); library(aj412s2)  \033[0m ", '\n')
-    cat(" \033[1;32m df<-openxlsx(DataSet.xlsx)    ##데이터셋df 에서 주소의 변수명: addr \033[0m ", '\n')
-    cat(" \033[1;32m n<-nrow(df)  \033[0m ", '\n')
-    cat(" \033[1;32m df$long_x<-NA  \033[0m ", '\n')
-    cat(" \033[1;32m df$lat_y<-NA  \033[0m ", '\n')
-    cat(" \033[1;32m for(i in 1:n){  \033[0m ", '\n')
-    cat(" \033[1;32m addr <- df$addr[i]  \033[0m ", '\n')
-    cat(" \033[1;32m longlat<-geocode_road(my_vworld, addr)  \033[0m ", '\n')
-    cat(" \033[1;32m if(is.null(longlat)) {longlat[1]<-NA; longlat[2]<-NA}  \033[0m ", '\n')
-    cat(" \033[1;32m df$lat_y[i]<-longlat[1] \033[0m ", '\n')
-    cat(" \033[1;32m df$long_x[i]<-longlat[2] \033[0m ", '\n')
-    cat(" \033[1;32m  }  \033[0m ", '\n')
+    cat(" \033[1;32m# ----------------------------------------------------- ", '\n')
+    cat(" \033[1;32m# 주소 만들기 = 시군구 + 번지  ", '\n')
+    cat(" \033[1;34m library(aj412s2); library(dplyr) \033[0m ", '\n')
+    cat(" \033[1;34m  \033[0m ", '\n')
+    cat(" \033[1;34m df<-openxlsx(경기도_실거래가_원본.xlsx) \033[0m ", '\n')
+    cat(" \033[1;34m # df 데이터셋의 변수: 시군구, 번지, 거래금액만원, 평당금액 \033[0m ", '\n')
+    cat(" \033[1;34m #    도로명, 전용면적m2, 단지명 \033[0m ", '\n')
+    cat(" \033[1;34m  \033[0m ",   '\n')
+    cat(" \033[1;34m colnames(df)[컬럼번호]<-'새로운_변수명_공백_금지' \033[0m ", '\n')
+    cat(" \033[1;34m df$addr <- paste0(df$시군구, ' ', df$도로명) \033[0m ", '\n')
+    cat(" \033[1;34m df <- df%>%arrange(addr) \033[0m ", '\n')
+    cat(" \033[1;34m colnames(df)   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m new_df <- df %>%   \033[0m ", '\n')
+    cat(" \033[1;34m   group_by(addr) %>%  \033[0m ", '\n')
+    cat(" \033[1;34m   summarise(    \033[0m ", '\n')
+    cat(" \033[1;34m     mean_거래금액 = mean(거래금액만원, na.rm = TRUE),   \033[0m ", '\n')
+    cat(" \033[1;34m     mean_평당금액 = mean(평당금액, na.rm = TRUE),   \033[0m ", '\n')
+    cat(" \033[1;34m     번지 = first(번지),   \033[0m ", '\n')
+    cat(" \033[1;34m     전용면적m2 = first(전용면적m2),   \033[0m ", '\n')
+    cat(" \033[1;34m     단지명 = first(단지명),   \033[0m ", '\n')
+    cat(" \033[1;34m     매매건수 = n(),   \033[0m ", '\n')
+    cat(" \033[1;34m     .groups = 'drop'   \033[0m ", '\n')
+    cat(" \033[1;34m   )   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;32m# ----------------------------------------------------- ", '\n')
+    cat(" \033[1;32m# Vworld를 이용해 geocode 찾기 ------------------------ ", '\n')
+    cat(" \033[1;34m library(httr); library(jsonlite); library(stringr)   \033[0m ", '\n')
+    cat(" \033[1;34m my_vworld <- 'SHIMBIRO455-A612BFF9-049A-ELCA888-3B10-BED9-B79A191038C6-yes'   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m n<-nrow(new_df)   \033[0m ", '\n')
+    cat(" \033[1;34m new_df$lat_y <- NA   \033[0m ", '\n')
+    cat(" \033[1;34m new_df$long_x <- NA   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m for (i in 1:n) {   \033[0m ", '\n')
+    cat(" \033[1;34m     addr <- new_df$addr[i]   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m   # 예외 처리 포함   \033[0m ", '\n')
+    cat(" \033[1;34m     longlat <- tryCatch({   \033[0m ", '\n')
+    cat(" \033[1;34m       geocode_road(my_vworld, addr)   \033[0m ", '\n')
+    cat(" \033[1;34m     }, error = function(e) {   \033[0m ", '\n')
+    cat(" \033[1;34m       return(NULL)   \033[0m ", '\n')
+    cat(" \033[1;34m     })   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m   # 결과가 없을 경우 건너뛰기   \033[0m ", '\n')
+    cat(" \033[1;34m     if (is.null(longlat) || length(longlat) < 2) {   \033[0m ", '\n')
+    cat(" \033[1;34m       new_df$lat_y[i] <- NA   \033[0m ", '\n')
+    cat(" \033[1;34m       new_df$long_x[i] <- NA   \033[0m ", '\n')
+    cat(" \033[1;34m       next   \033[0m ", '\n')
+    cat(" \033[1;34m     }   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m     # 정상적으로 값이 있을 때만 저장   \033[0m ", '\n')
+    cat(" \033[1;34m     new_df$lat_y[i] <- longlat[1]   \033[0m ", '\n')
+    cat(" \033[1;34m     new_df$long_x[i] <- longlat[2]   \033[0m ", '\n')
+    cat(" \033[1;34m }   \033[0m ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
+    cat(" \033[1;34m # 정리된 데이터를 xlsx파일로 저장   \033[0m ", '\n')
+    cat(" \033[1;34m mkxlsx(new_df, 'new_df.xlsx')   \033[0m ", '\n')
+    cat(" \033[1;32m# ----------------------------------------------------- ", '\n')
+    cat(" \033[1;34m    \033[0m ", '\n')
     return(cat(" \033[1;32m   \033[0m ") ) }
 
-  # URL 인코딩 함수 (Python의 quote_plus 역할)
-  # URL 인코딩 시 공백은 '+'로, 기타 특수문자는 %xx 형태로 인코딩
-  url_encode_plus <- function(string) {
+
+## 패키지 설치 ----------------------------------------------
+pkgs <- c("jsonlite", "httr", "stringr", "devtools", "dplyr", "readxl")
+for (p in pkgs) {
+  if (!requireNamespace(p, quietly = TRUE)) {
+    install.packages(p)
+  }
+}
+
+# aj412s2 설치 여부 확인
+if (!requireNamespace("aj412s2", quietly = TRUE)) {
+  devtools::install_github("ssbaj/aj412s2")  # 실제 GitHub 경로로 수정 필요
+}
+
+## 패키지 설치 끝 --------------------------------------------
+
+# URL 인코딩 함수 (Python의 quote_plus 역할)
+# URL 인코딩 시 공백은 '+'로, 기타 특수문자는 %xx 형태로 인코딩
+url_encode_plus <- function(string) {
     encoded_string <- URLencode(string, reserved = TRUE)
     encoded_string <- str_replace_all(encoded_string, "%20", "+") # 공백을 '+'로 변경
     return(encoded_string)
   }
   
-  
+ 
 url <- paste0(
   "http://api.vworld.kr/req/address?service=address&request=getCoord&type=ROAD&refine=false&key=", vworld_apikey, "&address=", url_encode_plus(addr)
 )
