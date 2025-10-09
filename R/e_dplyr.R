@@ -43,7 +43,22 @@ cat(" # aggegate vs. group_by() summarize() ", '\n')
 cat("   aggregate(가격만족도 ~ 브랜드, data = 데이터셋, FUN = mean) ", '\n')
 cat("   데이터셋 %>% group_by(브랜드) %>% summarize(mean(가격만족도, na.rm=T)) ", '\n')
 cat("   ", '\n')
+cat("   new_df$addr<-paste0(new_df$시군구, ' ', new_df$번지) ", '\n')
+cat("   new_df$거래금액만원 <- gsub('\\,', '', new_df$거래금액만원) ", '\n')
+cat("   new_df$거래금액만원 <- as.numeric(new_df$거래금액만원) ", '\n')
+cat("    ", '\n')
+cat("   new_df2 <- new_df %>% group_by(addr) %>% ", '\n')
+cat("     summarize( 평균거래금액만원 = mean(거래금액만원, na.rm = TRUE),    ", '\n')
+cat("                건물명 = first(건물명),   # 그룹 내 동일한 값   ", '\n')
+cat("                addr = first(addr),   # 그룹 내 동일한 값 ", '\n')
+cat("                주택유형 = first(주택유형),   # 그룹 내 동일한 값  ", '\n') 
+cat("                건축년도 = first(건축년도), ", '\n')
+cat("                거래수 = n(), ", '\n')
+cat("                long_x = first(long_x), ", '\n')
+cat("                lat_y = first(lat_y), ", '\n')
+cat("                .groups = 'drop' # 그룹 해제   ", '\n')
+cat("              )   ", '\n')
+cat("   ", '\n')
 } 
-
 }
 

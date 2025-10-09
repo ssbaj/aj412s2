@@ -3,6 +3,13 @@ e_datamining<-function(explaining=0){
 if(explaining==0) {
 cat("\014")
 cat("\033[1;34m**************************************************************** \033[0m ", '\n')
+cat("\033[1;33m## for 문: R vs Python -------\033[0m ", '\n')
+cat("  for(i in 1:10) { cat(i, '\n') } ", '\n')
+cat("  ", '\n')
+cat("  for i in range(1, 11): ", '\n')
+cat("       print(i, 'hellow', 'world', '\n') ", '\n')
+cat("  ", '\n')
+cat("  ", '\n')
 cat("\033[1;33m## 화면 스크롤 갯수 확대 -------\033[0m ", '\n')
 cat("  print(df, max=99999)  ", '\n')
 cat("  ", '\n')
