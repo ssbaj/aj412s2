@@ -6,10 +6,10 @@ if (base::missing(name_dataset)) {
 cat("\033[1;34m 또는, cn<-c(23.175, 45.700, 61.775 ) \033[0m", '\n')
      cat("\033[1;31m # ---------------------------------------------------------------------- ", '\n')
      cat("\033[1;34m df<-mkgroup(df, income, cn) \033[0m", '\n')
-     cat("\033[1;34m df, income, cn=Cutting Number, if there is no number then '<' \033[0m", '\n')
+     cat("\033[1;34m df, income, cn=Cutting Number, if there is no number then '미포함 <' \033[0m", '\n')
      cat("\033[1;31m # ---------------------------------------------------------------------- ", '\n')
      cat("\033[1;34m df<-mkgroup(df, income, cn, 2) \033[0m", '\n')
-     cat("\033[1;34m df, income, cn=Cutting Number, number is 2 then '<=' \033[0m", '\n')
+     cat("\033[1;34m df, income, cn=Cutting Number, number is 2 then '포함 <=' \033[0m", '\n')
 return(cat(" ") ) }
 
 c2n <- function(x_x01){
