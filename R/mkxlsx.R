@@ -25,7 +25,7 @@ mkxlsx <- function(dataset, file_path) {
   # xlsx 파일 저장
   tryCatch({
     write_xlsx(dataset, path = file_path)
-    message("Excel 파일 저장 완료: '", file_path, "'")
+    message("  Excel 파일 저장 완료: '", file_path, "'")
   }, error = function(e) {
     stop(paste0("파일 저장 중 오류가 발생함: ", e$message))
   })

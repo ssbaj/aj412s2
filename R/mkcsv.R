@@ -7,7 +7,7 @@ mkcsv <- function(dataset, file_path, encoding = "EUC-KR") {
     return(cat("\033[1;32m# mkcsv(데이터셋, 새로운파일명.csv, encoding = 'UTF-8') \033[0m\n"))
   }
 
-  # 🔹 file_path가 따옴표 없이 들어오면 문자로 변환
+  # file_path가 따옴표 없이 들어오면 문자로 변환
   file_path <- deparse(substitute(file_path))
 
   # 확장자 자동 보정
@@ -32,7 +32,7 @@ mkcsv <- function(dataset, file_path, encoding = "EUC-KR") {
               file = file_path,
               row.names = FALSE,
               fileEncoding = encoding)
-    message("CSV 저장 완료: '", file_path, "'")
+    message("  CSV 저장 완료: '", file_path, "'")
   }, error = function(e) {
     stop(paste0("파일 저장 중 오류 발생: ", e$message))
   })
