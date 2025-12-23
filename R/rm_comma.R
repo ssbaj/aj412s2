@@ -1,5 +1,12 @@
 rm_comma <- function(data, var) {
 
+if (base::missing(data)) {
+	cat("  # 숫자 변수에 있는 콤마 제거 후 변수를 numeric으로 지정 ----- ", '\n')
+	cat("    df <- rm_comma(BasicData, asset) ", '\n')
+	return( cat("   ", '\n') )
+}
+
+
   # 변수명을 문자로 캡처
   var_name <- deparse(substitute(var))
 
